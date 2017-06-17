@@ -9,7 +9,7 @@ Dank an [Patrick Wiener](https://github.com/wipatrick) für die Erstellung des [
 Wenn jemand noch gute Beispiele für das Template hat, dürft ihr diese gerne über ein Pull-Request einreichen.
 
 ## Vorschau
-Eine Vorschau des PDFs wird in unregelmäßigen Abständen per [Release](https://github.com/smueller18/latex-thesis-template/releases/latest) veröffentlicht.
+Eine Vorschau des PDFs wird in unregelmäßigen Abständen per [Release](https://github.com/smueller18/latex-template-thesis/releases/latest) veröffentlicht.
 
 ## Inhalt
 
