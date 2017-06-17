@@ -1,0 +1,77 @@
+% Anleitung zu Glossaries und Acronyms:
+% https://en.wikibooks.org/wiki/LaTeX/Glossary
+
+\newacronym[
+  plural={Bilder pro Sekunde},
+  longplural={Bilder pro Sekunde},
+  user2={Bildern pro Sekunde}
+]{bps}{BpS}{Bild pro Sekunde}
+
+
+\newglossaryentry{naiive}{
+  name=na\"{\i}ve,
+  description={is a French loanword (adjective, form of naïf) indicating having or showing a lack of experience, understanding or sophistication},
+  sort=naiive
+}
+
+\newglossaryentry{Linux}{
+  name=Linux,
+  description={is a generic term referring to the family of Unix-like computer operating systems that use the Linux kernel},
+  plural=Linuces
+}
+
+\longnewglossaryentry{computer}{name=computer}{
+  is a programmable machine that receives input, stores and manipulates data, and provides output in a useful format
+}
+\newglossaryentry{real number}{
+  name={real number},
+  description={include both rational numbers, such as $42$ and $\frac{-23}{129}$, and irrational numbers, such as $\pi$ and the square root of two; or, a real number can be given by an infinite decimal representation, such as $2.4871773339\ldots$ where the digits continue in some way; or, the real numbers may be thought of as points on an infinitely long number line},
+  symbol={\ensuremath{\mathbb{R}}}
+}
+
+
+\newglossaryentry{euro}{
+  name={\texteuro},
+  symbol={-},
+  description={Währung der Europäischen Union},
+  type=symbols,
+  sort=euro
+}
+
+\newglossaryentry{dollar}{
+  name={\textdollar},
+  symbol={-},
+  description={Währung der Vereinigten Staaten von Amerika},
+  type=symbols,
+  sort=dollar
+}
+
+\newglossaryentry{cent}{
+  name={\textcent},
+  symbol={-},
+  description={Centbeträge von Währungen},
+  type=symbols,
+  sort=cent
+}
+
+\newglossaryentry{chf}{
+  name={CHF},
+  symbol={-},
+  description={Währung der Schweiz},
+  type=symbols,
+  sort=chf
+}
+
+\newglossaryentry{gu}{
+  name={\gu Text},
+  symbol={-},
+  description={Gänsefüßchen unten mit \texttt{\textbackslash gu Text}},
+  type=symbols
+}
+
+\newglossaryentry{go}{
+  name={Text\go},
+  symbol={-},
+  description={Gänsefüßchen oben mit \texttt{Text\textbackslash go}},
+  type=symbols
+}

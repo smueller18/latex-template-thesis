@@ -1,0 +1,73 @@
+\usepackage{listings}
+
+\usepackage{caption}
+\newenvironment{code}{\captionsetup{type=lstlisting}\vspace{4mm}}{\vspace{2mm}}
+\captionsetup[lstlisting]{skip=1mm}
+
+
+\makeatletter
+\AtBeginDocument{%
+\renewcommand\lstlistoflistings{\bgroup
+  \let\contentsname\lstlistlistingname
+  \def\l@lstlisting##1##2{\@dottedtocline{1}{0pt}{0pt}{Listing ##1}{##2}}
+  \let\lst@temp\@starttoc \def\@starttoc##1{\lst@temp{lol}}%
+  \tableofcontents \egroup}
+}
+\makeatother
+
+\def\lstlistlistingname{Quellcodeverzeichnis}
+
+\lstset{
+  nolol=true,
+  numbers=left,
+  xleftmargin=0.8mm,
+  framexleftmargin=0.8mm,
+  numberstyle=\tiny\color{black},
+  numberblanklines=true,
+  language=Python,
+  basicstyle=\footnotesize\ttfamily,
+  frame=tb,
+  escapeinside=||,
+  keepspaces=true,
+  breaklines=true,
+  breakindent=0mm,
+  postbreak=\raisebox{0ex}[0ex][0ex]{\color{gray}\ensuremath{\hookrightarrow\space\space}},
+  columns=flexible,
+  showstringspaces=false,
+  commentstyle=\color{gray},
+  upquote=true,
+  literate=
+  {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+  {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+  {ß}{{\ss}}1
+  {€}{{\EUR}}1 {°}{\SI{}{\degree}}1
+}
+
+
+\usepackage{calc}
+
+\newlength{\codelettersize}
+\settowidth{\codelettersize}{\ttfamily\footnotesize{i}}
+
+\makeatletter
+  \newcommand{\nextline}[3][0]{
+    \\[3mm] \rule{0cm}{0cm} \hspace{-4.2\codelettersize}$\cdot\cdot$\hspace{2\codelettersize}\hspace{#1\codelettersize}\color{gray}\itshape #3 \\[3mm]
+    \setcounter{lstnumber}{#2-1}
+    \aftergroup\lst@numberfirstlinefalse
+  }
+\makeatother
+
+% Save the original way of printing the number (Custom Line Numbering)
+\let\othelstnumber=\thelstnumber
+\def\createlinenumber#1#2{
+  \edef\thelstnumber{%
+    \unexpanded{%
+      \ifnum#1=\value{lstnumber}\relax
+      #2%
+      \else}%
+    \expandafter\unexpanded\expandafter{\thelstnumber\othelstnumber\fi}%
+  }
+  \ifx\othelstnumber=\relax\else
+  \let\othelstnumber\relax
+  \fi
+}

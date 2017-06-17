@@ -1,0 +1,47 @@
+\section{Listings}
+\label{sec:listings}
+
+Listing \ref{lst:punktinpolygon} ist direkt in das Latexdokument eingebettet.
+\begin{code}
+  \begin{lstlisting}[firstnumber=11,language=java]
+public boolean enthaeltKoordinate( double lat, double lng ) {
+
+    boolean ungAnzSchnittpkt = false;
+    int i, j = polyKanten - 1;
+
+    for( i = 0; i < polyKanten; i++ ) {
+        if(( LngArr[ i ] < lng && LngArr[ j ] >= lng ) ||
+           ( LngArr[ j ] < lng && LngArr[ i ] >= lng )) {
+            if( LatArr[ i ] + (( lng - LngArr[ i ] ) /
+              ( LngArr[ j ] - LngArr[ i ] ) * ( LatArr[ j ] - LatArr[ i ] )) >= lat ) {
+                ungAnzSchnittpkt = !ungAnzSchnittpkt;
+            }
+        }
+        j = i;
+    }
+    return ungAnzSchnittpkt;
+} // Ende enthaeltKoordinate()-Methode
+  \end{lstlisting}
+  \caption[Auszug der PunktInPolygon-Klasse]{Auszug der \texttt{PunktInPolygon}-Klasse. Dieser zeigt die Implementierung des Punkt-in-Polygon Algorithmus.}
+  \label{lst:punktinpolygon}
+\end{code}
+
+
+Der Quelltext aus Listing \ref{lst:collector-chillii} wird aus einer Datei geladen. Es wurde eine Funktion in die Einstellungen eingebaut, mit der das teilweise Anzeigen einer Quelltextdatei leicht möglich ist. Der Befehl lautet\\
+\texttt{\scriptsize |\textbackslash nextline[Tabeinrückung]\{Zeilennummer der nächsten Zeile\}\{Kommentar für die ausgelassenen Zeilen\}|}.\\
+Beispiel sind
+\begin{enumerate} \footnotesize
+  \item \texttt{|\textbackslash nextline\{24\}|}
+  \item \texttt{|\textbackslash nextline[4]\{24\}|}
+  \item \texttt{|\textbackslash nextline\{24\}\{Exception Handling\}|}
+  \item \texttt{|\textbackslash nextline[4]\{24\}\{Exception Handling\}|}
+\end{enumerate}
+
+
+
+
+\begin{code}
+  \lstinputlisting[language=Python]{sourcecode/collector.py}
+  \caption[Collector-Skript für den System Controller]{Auszug aus dem Collector-Skript \texttt{chillii-collector/collector.py} für das Auslesen von Sensorwerten des System Controllers über die Modbus-Schnittstelle. Auszüge entnommen von \url{https://github.com/smueller18/chillii-collector/blob/1.0/collector.py}.}
+  \label{lst:collector-chillii}
+\end{code}

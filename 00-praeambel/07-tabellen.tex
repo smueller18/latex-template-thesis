@@ -1,0 +1,33 @@
+\usepackage{tabularx}
+\usepackage{varwidth}
+% Ermöglicht Tabellen über Seitenumbruch
+\usepackage{longtable}
+% Fußnoten in Tabellen
+\usepackage[]{threeparttable}
+\usepackage{booktabs}
+\usepackage{pdflscape}
+\usepackage{colortbl}
+% Liste in Tabelle
+\usepackage{enumitem}
+% Gestrichelte Linien in Tabellen
+\usepackage{arydshln}
+\usepackage{hhline}
+% Rotation einr Tabelle
+\usepackage{rotating}
+
+% Kurzbefehl für rotatebox um 90°
+\newcommand{\rot}[1]{\rotatebox{90}{#1~}}
+
+% Kurzer Befehl für multicolumn
+\newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
+
+% Anpassung der Zellhöhe
+\makeatletter
+  \renewenvironment{table}{
+  	\renewcommand{\arraystretch}{1.3}
+  	\@float{table}
+  }{\end@float}
+\makeatother
+
+% Fußzeile über gesamte Breite, kann in jeder table-Umgebung seperat gesetzt werde
+%\renewcommand{\TPTminimum}{\linewidth}

@@ -1,0 +1,34 @@
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\renewcommand{\thealgorithm}{\thechapter.\arabic{algorithm}}
+
+\renewcommand{\listalgorithmname}{Algorithmusverzeichnis}
+\floatname{algorithm}{Algorithmus}
+
+% Entferne Einrückung bei Algorithmusverzeichnis
+\patchcmd{\listof}{1.5em}{0pt}{}{}
+
+% Übersetzung der Schlüsselwörter
+\renewcommand{\algorithmicrequire}{\textbf{Eingabe:}}
+\renewcommand{\algorithmicensure}{\textbf{Ausgabe:}}
+\renewcommand{\algorithmicend}{\textbf{end}}
+\renewcommand{\algorithmicif}{\textbf{if}}
+\renewcommand{\algorithmicthen}{\textbf{then}}
+\renewcommand{\algorithmicelse}{\textbf{else}}
+\newcommand{\algorithmicelsif}{\algorithmicelse\ \algorithmicif}
+\newcommand{\algorithmicendif}{\algorithmicend\ \algorithmicif}
+\renewcommand{\algorithmicfor}{\textbf{for}}
+\renewcommand{\algorithmicforall}{\textbf{for all}}
+\renewcommand{\algorithmicdo}{\textbf{do}}
+\newcommand{\algorithmicendfor}{\algorithmicend\ \algorithmicfor}
+\renewcommand{\algorithmicwhile}{\textbf{while}}
+\newcommand{\algorithmicendwhile}{\algorithmicend\ \algorithmicwhile}
+\renewcommand{\algorithmicloop}{\textbf{loop}}
+\newcommand{\algorithmicendloop}{\algorithmicend\ \algorithmicloop}
+\renewcommand{\algorithmicrepeat}{\textbf{repeat}}
+\renewcommand{\algorithmicuntil}{\textbf{until}}
+\newcommand{\algorithmicprint}{\textbf{print}}
+\renewcommand{\algorithmicreturn}{\textbf{return}}
+\newcommand{\algorithmictrue}{\textbf{true}}
+\newcommand{\algorithmicfalse}{\textbf{false}}

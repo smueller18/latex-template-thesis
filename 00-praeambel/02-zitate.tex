@@ -1,0 +1,9 @@
+\usepackage[square]{natbib}
+\setlength{\bibsep}{0.25cm}
+\renewcommand{\bibfont}{\small}
+\renewcommand*{\bibpreamble}{\interlinepenalty10000\relax}
+
+% Setze Autoren in Kapitälchen
+\makeatletter
+  \renewcommand*{\NAT@nmfmt}[1]{\textsc{#1}}
+\makeatother

@@ -1,0 +1,4 @@
+{
+  "root": "thesis.tex",
+  "toolchain": "bin\\build-complete.bat %DOC"
+}

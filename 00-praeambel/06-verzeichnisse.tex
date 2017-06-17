@@ -1,0 +1,83 @@
+% Inhaltsverzeichnis
+\setcounter{secnumdepth}{3}
+\renewcommand*{\theparagraph}{\thesubsubsection.\alph{paragraph}}
+\setcounter{tocdepth}{3}
+\usepackage{tocstyle}
+\usetocstyle{allwithdot}
+
+% Anhang richtig verlinkt im Inhaltsverzeichnis
+\renewcommand*{\theHsection}{\thesection}
+
+
+% Tabellen- und Abbildungsverzeichnis
+% Einrücken verhindern
+% Default: 1.5em/2.3em
+\makeatletter
+  \renewcommand*\l@figure{\@dottedtocline{1}{0em}{2.3em}}
+  \let\l@table\l@figure
+\makeatother
+
+\renewcommand{\thefigure}{Abb.~\arabic{chapter}.\arabic{figure}}
+\renewcommand{\thetable}{Tabelle~\arabic{chapter}.\arabic{table}}
+\renewcommand{\theequation}{Gl.~\arabic{chapter}.\arabic{equation}}
+\renewcommand*{\figureformat}{\thefigure}
+\renewcommand*{\tableformat}{\thetable}
+\renewcommand*{\captionformat}{: }
+
+% Bild-/Tabellenunterschriften klein & serifenlos
+\addtokomafont{caption}{\small\sffamily}
+% Bild-/Tabelllabel fett & serifenlos
+\addtokomafont{captionlabel}{\sffamily\bfseries}
+
+% Doppelpunkt nach Nummern
+\AtBeginDocument{
+  \addtocontents{lof}{\protect\def\protect\autodot{:}}
+  \addtocontents{lot}{\protect\def\protect\autodot{:}}
+}
+
+\usepackage{caption}
+
+% Abkürzungsverzeichnis
+\usepackage[
+  % fügt das Verzeichnis dem Inhaltsverzeichnis zu
+	toc,
+  % Abkürzungsverzeichnis hinzufügen
+  acronym,
+  % keine Seitenzahlen
+  nonumberlist,
+  % kein Punkt am Ende der Beschreibung
+  nopostdot
+]{glossaries}
+
+\newglossary[slg]{symbols}{sls}{slo}{Symbolverzeichnis}
+
+% Benutzerdefinierte Acronymeigenschaften
+% user1
+\let\acrlonggen\glsuseri
+% user2
+\let\acrlongpldat\glsuserii
+
+
+% Erstelle Stye für das Symbolverzeichnis
+\newglossarystyle{symbolstyle}{
+  \renewenvironment{theglossary}{
+    \begin{longtable}{@{}p{0.1\textwidth}@{}p{0.9\textwidth}}
+  }{
+    \end{longtable}
+  }
+  \renewcommand*{\glossaryheader}{}
+  \renewcommand*{\glsgroupheading}[1]{}
+  \renewcommand*{\glossaryentryfield}[5]{
+    \glstarget{\textbf{##1}}{\sffett{\rlap{##2}}} & ##3\glspostdescription\space ##5\\
+  }
+  \renewcommand*{\glossarysubentryfield}[6]{
+    \glossaryentryfield{##2}{##3}{##4}{##5}{##6}
+  }
+  \renewcommand*{\glsgroupskip}{ & \\
+    \renewcommand{\arraystretch}{1.4}
+  }
+}
+
+
+% Generiere später die Glossary Dateien
+\makeglossaries

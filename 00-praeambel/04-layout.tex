@@ -1,0 +1,51 @@
+\usepackage[automark]{scrpage2}
+\automark[section]{chapter}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\ihead{\leftmark}
+\ohead{\pagemark}
+\renewcommand*{\chapterpagestyle}{scrheadings}
+\renewcommand*{\indexpagestyle}{scrheadings}
+\usepackage[left=30mm,right=38mm,top=30mm,bottom=20mm]{geometry}
+
+\RedeclareSectionCommand[
+  beforeskip=-1\baselineskip,
+  afterskip=0.4\baselineskip
+]{chapter}
+
+% Kapitelpräfixgröße
+\setkomafont{chapterprefix}{\large}
+% Kapitelgröße
+\setkomafont{chapter}{\LARGE}
+% Paragraphen/Absatzabstand
+\setlength{\parskip}{0.7EM}
+
+% Fußnoten eingerückt untereinander
+\deffootnote[]{1em}{1em}{\textsuperscript{\thefootnotemark\ }}
+
+% Fußnoten über alle Kapitel absolut
+\usepackage{remreset}
+\makeatletter
+\@removefromreset{footnote}{chapter}
+\makeatother
+
+\newcommand{\sffett}[1]{\textsf{\textbf{#1}}}
+\newcommand{\mathsfbold}[1]{\boldsymbol{\mathsf{#1}}}
+
+% 1,5-zeiligen Zeilenabstand
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{float}
+
+% Anhang
+\renewcommand\appendix{\par
+  \setcounter{section}{0}
+  \setcounter{subsection}{0}
+  \setcounter{figure}{0}
+  \setcounter{table}{0}
+  \renewcommand\thesection{\Alph{section}}
+  \renewcommand\thefigure{Abb. \Alph{section}\arabic{figure}}
+  \renewcommand\thetable{Tab. \Alph{section}\arabic{table}}
+  \renewcommand{\thelstlisting}{\thesection.\arabic{lstlisting}}
+}

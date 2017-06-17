@@ -1,0 +1,119 @@
+\documentclass[
+  % Schriftgröße
+  11pt,
+  % Ein- oder Zweiseitiges Dokument (oneside, twoside)
+  oneside,
+  a4paper,
+  % Kein Punkt am Ende der Nummerierung
+  numbers=noenddot,
+  % Literaturverzeichnis ins ToC
+  bibliography=totoc,
+  % Abbildungs- und Tabellenverzeichnis ins ToC
+  listof=totoc,
+  % Linie unter Kopfzeile
+  headsepline,
+  % Absatz nicht einrücken
+  %parskip,
+  % Kein vertikaler Abstand in Verzeichnissen zwischen unterschiedlichen Kapitel
+  %listof=nochaptergap
+]{scrreprt}
+
+\input{00-praeambel/01-allgemein}
+\input{00-praeambel/02-zitate}
+\input{00-praeambel/03-zeichen-symbole}
+\input{00-praeambel/04-layout}
+\input{00-praeambel/05-farben}
+\input{00-praeambel/06-verzeichnisse}
+\input{00-praeambel/07-tabellen}
+\input{00-praeambel/08-algorithmen}
+\input{00-praeambel/09-quellcode}
+\input{00-praeambel/10-listen}
+
+\hypersetup{
+  bookmarksnumbered,
+  pdfauthor={Stephan Müller},
+  pdftitle={Template für eine Bachelor- oder Masterthesis},
+  pdfkeywords={Latex, Thesis, Bachelor, Master}
+}
+
+% Abkürzungen und Symbole laden
+\include{01-vorspann/01-glossaries}
+\glsaddall
+
+% Hinzufügen von Textplatzhaltern
+\usepackage{blindtext}
+
+\begin{document}
+
+% Füge Tabellenverzeichnis in Inhaltsverzeichnis ein
+\addtocontents{lot}{\vskip 0.4cm}
+% Füge Abbildungsverzeichnis in Inhaltsverzeichnis ein
+\addtocontents{lof}{\vskip 0.4cm}
+
+\newgeometry{left=30mm,right=25mm,top=30mm,bottom=20mm}
+\include{01-vorspann/02-deckblatt}
+
+\newgeometry{left=30mm,right=38mm,top=30mm,bottom=20mm}
+\include{01-vorspann/03-kurzfassung}
+
+\include{01-vorspann/04-danksagung}
+
+% Inhaltsverzeichnis
+\pagenumbering{Roman}
+\setcounter{page}{1}
+\tableofcontents
+
+% Tabellenverzeichnis
+\setcounter{tocdepth}{2}
+\listoftables
+
+% Abbildungsverzeichnis
+\listoffigures
+
+% Algorithmusverzeichnis
+\listofalgorithms
+
+% Quelltextverzeichnis
+%\renewcommand*{\thelstlisting}{List.~\arabic{lstlisting}}
+%\renewcommand*{\lstlistlistingname}{Quelltextverzeichnis}
+\lstlistoflistings
+
+% Abkürzungsverzeichnis & Symbolverzeichnis
+\printglossary[
+  title=Glossar,
+  toctitle=Glossar
+]
+\printglossary[
+  title=Abkürzungsverzeichnis,
+  toctitle=Abkürzungsverzeichnis,
+  type=\acronymtype
+]
+\printglossary[
+  title=Symbolverzeichnis,
+  toctitle=Symbolverzeichnis,
+  type=symbols,
+  style=symbolstyle
+]
+
+% Inhalt der Arbeit
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\include{02-inhalt/01-einleitung}
+\include{02-inhalt/02-00-hauptteil}
+
+
+% Anhang
+% Inhaltsverzeichnis ohne Anhangbilder, aber im Anhang nummeriert
+\captionsetup{list=false}
+
+\appendix
+\include{03-anhang/01-anhang}
+
+% Literaturverzeichnis
+\bibliographystyle{natdin}
+\bibliography{literatur}
+\clearpage
+
+\include{04-nachspann/01-eiderklaerung}
+
+\end{document}

@@ -1,0 +1,55 @@
+\section{Tabellen}
+\label{sec:tabellen}
+
+Anstatt \texttt{multicolumn} kann auch einfach nur \texttt{mc} benutzt werden.
+
+
+\ref{tbl:eigenschaftsuebersicht-der-drohne} zeigt die Systemparameter eines Flugroboters der sitebots GmbH.
+\begin{table}[h]
+  \centering
+  \begin{threeparttable}
+    \makebox[\linewidth]{%
+      \renewcommand{\TPTminimum}{\linewidth}
+      \begin{tabular}{crr@{ }l}
+        \toprule
+
+        Eigenschaft & \mc{3}{c}{Wert} \\
+
+        \cmidrule[0.4pt](r{0.25em}){1-1} \cmidrule[0.4pt](lr{0.25em}){2-4}
+
+        Gewicht (ohne Beladung) & $=$ & 4 & \SI{}{\kilogram} \\
+        Gewicht (mit Beladung) & $=$ & 5,2 & \SI{}{\kilogram} \\
+        durchschnittliche Flugdauer\tnote{1)} & $\approx$ & 20 & \SI{}{\minute} \\
+        Durchmesser & $=$ & 1 & \SI{}{\meter} \\
+        Fluggeschwindigkeit\tnote{2)} & $\leq$ & 20 & \SI{}{\meter\per\second} \\
+        Flughöhe\tnote{3)} & $\leq$ & 100 & \SI{}{\meter} \\
+
+        \bottomrule
+      \end{tabular}
+    }
+    \begin{tablenotes}
+      \footnotesize
+      \item[1)] Entspricht der durchschnittlichen Flugdauer pro Akkuladung und kann durch Wechseln von Akkus beliebig erweitert werden.
+      \item[2)] Bei einer Geschwindigkeit von \SI{20}{\meter\per\second} beträgt der Anstellwinkel \SI{20}{\degree} über der Horizontalen.
+      \item[3)] In der Praxis auf \SI{100}{\meter} begrenzt durch die allgemeine Aufstiegserlaubnis über Grund.
+    \end{tablenotes}
+  \end{threeparttable}
+  \caption[Systemparameter der Drohne]{Systemparameter der Drohne nach \citet[S.~9]{Bachelorthesis.2016}}
+  \label{tbl:eigenschaftsuebersicht-der-drohne}
+\end{table}
+
+
+\begin{table}[ht]
+  \centering
+  % Tabular example from LaTeX manual, p.205
+  \begin{tabular}{|r||r@{--}l|p{38mm}|}
+    \hline
+    \mc{4}{|c|}{GG\&A Hoofed Stock}\\ \hline \hline
+     & \mc{2}{c|}{Price} & \\ \cline{2-3}
+    \mc{1}{|c||}{Year} & \mc{1}{r@{\,\vline\,}}{low} & high & \mc{1}{c|}{Comments} \\ \hline
+    1971 & 97 & 245 & Bad year for farmers in the west. \\ \hline
+      72 & 245 & 245 & Light trading due to a heavy winter. \\ \hline
+      73 & 245 & 2001 & No gnus was very good gnus this year. \\ \hline
+  \end{tabular}
+  \caption[GG\&A Hoofed Stock]{GG\&A Hoofed Stock. Tabelle mit Priotität der Position unmittelbar an der Stelle im Quellcode durch kennzeichnen mit \texttt{ht}. Abgeändert übernommen von \url{https://mirror.hmc.edu/ctan//info/examples/lb2/5-7-8.ltx}.}
+\end{table}
