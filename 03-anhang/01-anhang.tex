@@ -13,6 +13,43 @@
 \end{code}
 
 
+\section{Algorithmen}
+
+
+\begin{algorithm}
+  \caption{Mäanderförmige Erstroutenplanung}
+  \begin{algorithmic}[1]
+    \Require{
+      \parbox[t]{.89\linewidth}{
+        Flugzellenmatrizen $X^{m\times n}\;,Y^{m\times n}$
+      }
+    }
+    \Ensure{Flugroute $F=(f_1,\; f_2,\; \dots,\; f_n)$}
+    \Procedure{GetMeanderFlightRoute}{$X, Y$}
+    \State $F=()$
+    \State $a=1$
+
+    \For{$i = 1:m$}
+      \If{$i \bmod 2 \neq 0$}
+        \For{$j = 1:n$}
+          \State $f_a = (x_{ij}, y_{ij})$
+          \State $a=a+1$
+        \EndFor
+      \Else
+        \For{$j = n:1$}
+          \State $f_a = (x_{ij}, y_{ij})$
+          \State $a=a+1$
+        \EndFor
+      \EndIf
+    \EndFor
+
+    \State \Return $F$
+
+    \EndProcedure
+  \end{algorithmic}
+\end{algorithm}
+
+
 \section{Inhalte des beiliegenden Datenträgers}
 \label{sec:quelltexte}
 Kein Datenträger vorhanden.
