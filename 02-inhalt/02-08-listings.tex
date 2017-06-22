@@ -26,6 +26,31 @@ public boolean enthaeltKoordinate( double lat, double lng ) {
   \label{lst:punktinpolygon}
 \end{code}
 
+Listing \ref{lst:punktinpolygon2} ist direkt in das Latexdokument eingebettet und in der Schriftart \texttt{\textbackslash sffamily}.
+\begin{code}
+  \begin{lstlisting}[firstnumber=11,language=java,basicstyle={\footnotesize\sffamily}]
+public boolean enthaeltKoordinate( double lat, double lng ) {
+
+    boolean ungAnzSchnittpkt = false;
+    int i, j = polyKanten - 1;
+
+    for( i = 0; i < polyKanten; i++ ) {
+        if(( LngArr[ i ] < lng && LngArr[ j ] >= lng ) ||
+           ( LngArr[ j ] < lng && LngArr[ i ] >= lng )) {
+            if( LatArr[ i ] + (( lng - LngArr[ i ] ) /
+              ( LngArr[ j ] - LngArr[ i ] ) * ( LatArr[ j ] - LatArr[ i ] )) >= lat ) {
+                ungAnzSchnittpkt = !ungAnzSchnittpkt;
+            }
+        }
+        j = i;
+    }
+    return ungAnzSchnittpkt;
+} // Ende enthaeltKoordinate()-Methode
+  \end{lstlisting}
+  \caption[Auszug der PunktInPolygon-Klasse]{Auszug der \texttt{PunktInPolygon}-Klasse. Dieser zeigt die Implementierung des Punkt-in-Polygon Algorithmus.}
+  \label{lst:punktinpolygon2}
+\end{code}
+
 
 Der Quelltext aus Listing \ref{lst:collector-chillii} wird aus einer Datei geladen. Es wurde eine Funktion in die Einstellungen eingebaut, mit der das teilweise Anzeigen einer Quelltextdatei leicht möglich ist. Der Befehl lautet\\
 \texttt{\scriptsize |\textbackslash nextline[Tabeinrückung]\{Zeilennummer der nächsten Zeile\}\{Kommentar für die ausgelassenen Zeilen\}|}.\\
