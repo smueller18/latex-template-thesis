@@ -38,16 +38,19 @@
 
 \usepackage{float}
 
+\usepackage{chngcntr}
+
 % Anhang
 \renewcommand\appendix{\par
-  \setcounter{section}{0}
-  \setcounter{subsection}{0}
-  \setcounter{figure}{0}
-  \setcounter{table}{0}
-  \setcounter{algorithm}{0}
+  % Inhaltsverzeichnis ohne Anhangbilder, aber im Anhang nummeriert
+  \captionsetup{list=false}
+  \counterwithin*{figure}{section}
+  \counterwithin*{table}{section}
+  \counterwithin*{algorithm}{section}
+  \counterwithin*{lstlisting}{section}
   \renewcommand\thesection{\Alph{section}}
-  \renewcommand\thefigure{Abb. \Alph{section}\arabic{figure}}
-  \renewcommand\thetable{Tab. \Alph{section}\arabic{table}}
+  \renewcommand\thefigure{Abb.~\Alph{section}.\arabic{figure}}
+  \renewcommand\thetable{Tab.~\Alph{section}.\arabic{table}}
   \renewcommand{\thelstlisting}{\thesection.\arabic{lstlisting}}
   \renewcommand{\thealgorithm}{\thesection.\arabic{algorithm}}
 }
