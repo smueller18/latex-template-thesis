@@ -156,13 +156,15 @@ sudo apt install -y TeXstudio
 ###### Windows
 Installationsdatei unter http://www.TeXstudio.org/ herunterladen und installieren.
 
-### Bildererstellung durch Skripte
-Mit Python-Skripten können Plots direkt als PDF-Datei erstellt werden.
+### Skripting
+Mit Python-Skripten können dynamische Inhalte erstellt werden, wie z.B. Plots, die direkt als PDF-Datei gespeichert werden können.
 
 Um Pythonskripte ausführen zu können muss Python installiert sein. Für Plots wird das Modul `matplotlib` benötigt.
 
-Die Skripte sollen in den dafür vogesehenen Ordner `skripte` gespeichert werden.
-In der Datei `skripte/__init__.py` können globale Standardeinstellungen gespeichert werde, die in jedem Skript importiert werden können. Die Datei `skripte/_all.py` sollte immer alle verfügbaren Skripte importieren, damit bei einer Änderung der Standardeinstellungen alle Plots mit einem Programmaufruf neu erstellt werden:
+Die Skripte können in den dafür vogesehenen Ordner `skripte` gespeichert werden.
+In der Datei `skripte/__init__.py` können globale Standardeinstellungen gespeichert werde, die in jedem Skript importiert werden können.
+
+Die einzelnen Skripte können dann über die Kommandozeile gestartet werden:
 ```bash
-python skripte/_all.py
+python skripte/mein_skript.py
 ```
