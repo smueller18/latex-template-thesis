@@ -1,6 +1,15 @@
 \addchap{Anhang}
 \label{chap:anhang}
 
+\section{Section}
+
+\subsection{Subsection 1}
+\subsubsection{Subsubsection 1}
+\subsubsection{Subsubsection 2}
+
+\subsection{Subsection 2}
+\subsubsection{Subsubsection 1}
+\subsubsection{Subsubsection 2}
 
 \section{Quelltexte}
 \label{sec:quelltexte}
@@ -50,6 +59,35 @@ Algorithmus \ref{alg:erstroutenplanung-anhang} zeigt auf, wie eine Generierung e
     \EndProcedure
   \end{algorithmic}
 \end{algorithm}
+
+\section{Bilder}
+
+Bilder aus dem Anhang werden nicht im Abbildungsverzeichnis aufgeführt, daher ist dort auch kein Link zu \ref{fig:zeitreihe-komponenten4}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{bilder/02-hauptteil/zeitreihe-komponenten.pdf}
+  \caption[Aufteilung einer Zeitreihe in mehrere Komponenten]{Aufteilung einer Zeitreihe in mehrere Komponenten. Bild entnommen aus \citet{Masterthesis.2017}.}
+  \label{fig:zeitreihe-komponenten4}
+\end{figure}
+
+\section{Tabelle}
+\ref{tbl:gg-hoofed-stock} ist eine Tabelle im Anhang.
+\begin{table}[ht]
+  \centering
+  % Tabular example from LaTeX manual, p.205
+  \begin{tabular}{|r||r@{--}l|p{38mm}|}
+    \hline
+    \mc{4}{|c|}{GG\&A Hoofed Stock}\\ \hline \hline
+     & \mc{2}{c|}{Price} & \\ \cline{2-3}
+    \mc{1}{|c||}{Year} & \mc{1}{r@{\,\vline\,}}{low} & high & \mc{1}{c|}{Comments} \\ \hline
+    1971 & 97 & 245 & Bad year for farmers in the west. \\ \hline
+      72 & 245 & 245 & Light trading due to a heavy winter. \\ \hline
+      73 & 245 & 2001 & No gnus was very good gnus this year. \\ \hline
+  \end{tabular}
+  \caption[GG\&A Hoofed Stock]{GG\&A Hoofed Stock. Tabelle mit Priotität der Position unmittelbar an der Stelle im Quellcode durch kennzeichnen mit \texttt{ht}. Abgeändert übernommen von \url{https://mirror.hmc.edu/ctan//info/examples/lb2/5-7-8.ltx}.}
+  \label{tbl:gg-hoofed-stock}
+\end{table}
 
 
 \section{Inhalte des beiliegenden Datenträgers}
