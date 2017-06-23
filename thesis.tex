@@ -58,9 +58,12 @@
 
 \include{01-vorspann/04-danksagung}
 
-% Inhaltsverzeichnis
 \pagenumbering{Roman}
 \setcounter{page}{1}
+
+% Erstelle Lesezeichen für das Inhaltsverzeichnis
+\cleardoublepage\phantomsection\pdfbookmark{\contentsname}{toc}
+% Inhaltsverzeichnis
 \tableofcontents
 
 % Tabellenverzeichnis
@@ -113,9 +116,6 @@
 
 
 % Anhang
-% Inhaltsverzeichnis ohne Anhangbilder, aber im Anhang nummeriert
-\captionsetup{list=false}
-
 \appendix
 \include{03-anhang/01-anhang}
 
