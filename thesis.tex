@@ -64,10 +64,11 @@
 % Erstelle Lesezeichen für das Inhaltsverzeichnis
 \cleardoublepage\phantomsection\pdfbookmark{\contentsname}{toc}
 % Inhaltsverzeichnis
+% Verzeichnis nur bis Section-Level 2 (subsection)
+\setcounter{tocdepth}{2}
 \tableofcontents
 
 % Tabellenverzeichnis
-\setcounter{tocdepth}{2}
 \listoftables
 
 % Abbildungsverzeichnis
