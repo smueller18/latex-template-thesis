@@ -1,7 +1,7 @@
 % Inhaltsverzeichnis
-\setcounter{secnumdepth}{3}
+\setcounter{secnumdepth}{2}
 \renewcommand*{\theparagraph}{\thesubsubsection.\alph{paragraph}}
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{2}
 \usepackage{tocstyle}
 \usetocstyle{allwithdot}
 
@@ -57,27 +57,23 @@
 % user2
 \let\acrlongpldat\glsuserii
 
-
-% Erstelle Stye für das Symbolverzeichnis
-\newglossarystyle{symbolstyle}{
-  \renewenvironment{theglossary}{
-    \begin{longtable}{@{}p{0.1\textwidth}@{}p{0.9\textwidth}}
-  }{
-    \end{longtable}
-  }
-  \renewcommand*{\glossaryheader}{}
-  \renewcommand*{\glsgroupheading}[1]{}
-  \renewcommand*{\glossaryentryfield}[5]{
-    \glstarget{\textbf{##1}}{\sffett{\rlap{##2}}} & ##3\glspostdescription\space ##5\\
-  }
-  \renewcommand*{\glossarysubentryfield}[6]{
-    \glossaryentryfield{##2}{##3}{##4}{##5}{##6}
-  }
-  \renewcommand*{\glsgroupskip}{ & \\
-    \renewcommand{\arraystretch}{1.4}
-  }
+% Style auf long aufbauend aber mit verbessertem Abstand
+\newglossarystyle{longspace}{%
+  \setglossarystyle{long}
+  \renewenvironment{theglossary}%
+     {\begin{longtable}[l]{@{}p{0.15\textwidth}@{}p{0.85\textwidth}}}
+     {\end{longtable}}
+  \renewcommand{\glossentry}[2]{%
+    \glsentryitem{##1}\glstarget{##1}{\glossentryname{##1}} &
+    \glossentrydesc{##1}\glspostdescription\space ##2\tabularnewline[5mm]
+  }%
+  \renewcommand{\subglossentry}[3]{%
+     &
+     \glssubentryitem{##2}%
+     \glstarget{##2}{\strut}\glossentrydesc{##2}\glspostdescription\space
+     ##3\tabularnewline[2mm]
+  }%
 }
-
 
 % Generiere später die Glossary Dateien
 \makeglossaries

@@ -58,14 +58,13 @@
 
 \include{01-vorspann/04-danksagung}
 
+\cleardoublepage
 \pagenumbering{Roman}
 \setcounter{page}{1}
 
 % Erstelle Lesezeichen für das Inhaltsverzeichnis
-\cleardoublepage\phantomsection\pdfbookmark{\contentsname}{toc}
+\phantomsection\pdfbookmark{\contentsname}{toc}
 % Inhaltsverzeichnis
-% Verzeichnis nur bis Section-Level 2 (subsection)
-\setcounter{tocdepth}{2}
 \tableofcontents
 
 % Tabellenverzeichnis
@@ -78,7 +77,8 @@
 \listofalgorithms
 
 % Quelltextverzeichnis
-\clearpage\phantomsection\pdfbookmark{Quellcodeverzeichnis}{quelltcodeverzeichnis}
+\clearpage
+\phantomsection\pdfbookmark{Quellcodeverzeichnis}{quelltcodeverzeichnis}
 \lstlistoflistings
 
 % Abkürzungsverzeichnis & Symbolverzeichnis
@@ -89,16 +89,18 @@
 \printglossary[
   title=Abkürzungsverzeichnis,
   toctitle=Abkürzungsverzeichnis,
-  type=\acronymtype
+  type=\acronymtype,
+  style=longspace
 ]
 \printglossary[
   title=Symbolverzeichnis,
   toctitle=Symbolverzeichnis,
   type=symbols,
-  style=symbolstyle
+  style=longspace
 ]
 
 % Inhalt der Arbeit
+\cleardoublepage
 \pagenumbering{arabic}
 \setcounter{page}{1}
 \input{02-inhalt/01-einleitung}
