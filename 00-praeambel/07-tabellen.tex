@@ -2,8 +2,6 @@
 \usepackage{varwidth}
 % Ermöglicht Tabellen über Seitenumbruch
 \usepackage{longtable}
-% Fußnoten in Tabellen
-\usepackage[]{threeparttable}
 \usepackage{booktabs}
 \usepackage{pdflscape}
 \usepackage{colortbl}
@@ -28,6 +26,16 @@
   	\@float{table}
   }{\end@float}
 \makeatother
+
+% Fußnoten in Tabellen
+\usepackage[]{threeparttable}
+
+\appto\TPTnoteSettings{
+  % Vergrößere Abtsand Fußnotenlabel
+  \setlength\labelwidth{0.8em}
+  % Fußnoten in footnotesize
+  \footnotesize
+}
 
 % Fußzeile über gesamte Breite, kann in jeder table-Umgebung seperat gesetzt werde
 %\renewcommand{\TPTminimum}{\linewidth}
