@@ -1,12 +1,12 @@
 # Latex-Template für Abschlussarbeiten
-Angepasst an die Richtlinien für die Fakultät für Wirtschaftswissenschaften an der Hochschule Karlsruhe
+Angepasst an die Richtlinien für die Fakultät für Wirtschaftswissenschaften an der Hochschule Karlsruhe (Stand 2017)
 
-Wenn ihr die Vorlage nutzt, dürft ihr dem Projekt gerne ein Stern geben ;-)
+Wenn ihr die Vorlage nutzt, dürft ihr dem Projekt gerne ein Stern geben 😉
 
 ## Contribution
 Dank an [Patrick Wiener](https://github.com/wipatrick) für die Erstellung des [Basistemplates](https://github.com/wipatrick/latex-vorlage-thesis).
 
-Wenn jemand noch gute Beispiele für das Template hat, dürft ihr diese gerne über ein Pull-Request einreichen.
+Da ich nicht mehr aktiv an der Hochschule Karlsruhe tätig bin, wird diese Vorlage nicht mehr an sich eventuell ändernde Richtlinien der Hochschule von mir aktiv angepasst.
 
 ## Vorschau
 Eine Vorschau des PDFs wird in unregelmäßigen Abständen per [Release](https://github.com/smueller18/latex-template-thesis/releases/latest) veröffentlicht.
@@ -42,18 +42,19 @@ Das Projekt ist so präpariert, dass die produzierte Ausgabe von Tex streng vom 
 | 04-nachspann/ | Eidesstattliche Erklärung |
 | bilder/ | Sammlung aller Bilder |
 | bin/ | Ausführbare Dateien zum Erzeugen des PDFs |
-| output/ | Speicherung aller Dateien die beim Erzeugen des PDFs entstehen udn PDF selbst |
-| skripte/ | Sammlung von Skripten zum Erstllen von Grafiken |
+| output/ | Speicherung aller Dateien die beim Erzeugen des PDFs entstehen und PDF selbst |
+| skripte/ | Sammlung von Skripten zum Erstellen von Grafiken |
 | sourcecode/ | Sammlung von Quellcodedateien |
 | literatur.bib | Literaturquellen |
 | natdin.bst | Zitierstil |
 | thesis.tex | Hauptdokument der Thesis |
 
 ## Code Styling
-### Label
-Labels werden mir `\label{label:name-des-labels}` defniert und mit `ref{label:name-des-labels}` referenziert. Für die verschiedenen Umgebungen sollten folgende Abkürzungen für das Label gewählt werden:
 
-| Umgebung | label | Name |
+### Label
+Labels werden mit `\label{label:name-des-labels}` definiert und mit `ref{label:name-des-labels}` referenziert. Für die verschiedenen Umgebungen sollten folgende Abkürzungen für das Label gewählt werden:
+
+| Umgebung | Label | Name |
 |---|---|---|
 | chapter | chap | Kapitel |
 | section | sec | Abschnitt |
@@ -67,6 +68,7 @@ Labels werden mir `\label{label:name-des-labels}` defniert und mit `ref{label:na
 
 
 ## Generierung des PDF Dokumentes über die Konsole
+
 ###### Linux
 ```bash
 bin/build-complete.sh thesis
@@ -76,7 +78,6 @@ bin/build-complete.sh thesis
 ```
 bin\build-complete.bat thesis
 ```
-
 
 ## Entwicklungsumgebung
 
@@ -96,10 +97,10 @@ Installationsdatei unter https://www.tug.org/texlive/acquire-netinstall.html her
 ### Editoren
 Für eine plattformübergreifende Erstellung eines Tex-Dokumentes sollte ein bestimmter Style des Codes eingehalten werden, vor allem damit der Code bei unterschiedlichen Editorenfensterbreiten flüssig lesbar ist.
 Es werden folgende Einstellungen empfohlen:
-- Automatischer Zeilenumbruch aktivieren (Soft Wrap)
-- Tabs durch 2 Leerzeichen ersetzen (Soft Tabs)
+-   Automatischer Zeilenumbruch aktivieren (Soft Wrap)
+-   Tabs durch 2 Leerzeichen ersetzen (Soft Tabs)
 
-Zur Übersicht sind hier verschiedene Editoren aufgelistet
+Zur Übersicht sind hier verschiedene Editoren aufgelistet.
 
 | | Atom<sup>[1](#1)</sup> | TeXstudio |
 | --- | --- | --- |
@@ -120,7 +121,7 @@ Für Anfänger ist TeXstudio die bessere Wahl, da dort sämtliche Latex Funktion
 #### Atom
 Die Erweiterung [atom-latex](https://atom.io/packages/latex) stellt die Funktionalität bereit, eine PDF-Datei zu erzeugen. Dafür muss sie an die Umgebung des Templates angepasst werden.
 Am einfachsten ist die Nutzung einer `*.latexcfg`-Datei, welche im Hauptordner dieses Projektes liegt. Für Atom wurden jeweils für Linux und Windows eine Konfigurationsdatei zum automatischen Übernehmen des Latexbuild-Aufruf aufgenommen. Bei Nutzung von Linux ist die Datei `.linux.latexcfg` in `.latexcfg` umzubenennen, bei der Nutzung von Windows ist die Datei `.windows.latexcfg` in `.latexcfg` umzubenennen.<br>
-Bei der Nutzung von mehreren Betriebssystemen, ist eine Nutzung der `.latexcfg` nicht sinnvoll, da ansonsten bei jedem Wechsel des Betriebssystem die Dateien umbenannt werden müssten. In einem solchen Fall muss die Eigenschaft `Custom Toolchain commands` in jeder Atominstanz gesetzt werden mit:
+Bei der Nutzung von mehreren Betriebssystemen, ist eine Nutzung der `.latexcfg` nicht sinnvoll, da ansonsten bei jedem Wechsel des Betriebssystem die Dateien umbenannt werden müssten. In einem solchen Fall muss die Eigenschaft `Custom Toolchain commands` in jeder Atom-Instanz gesetzt werden mit:
 
 | Linux | Windows |
 |---|---|
@@ -129,25 +130,27 @@ Bei der Nutzung von mehreren Betriebssystemen, ist eine Nutzung der `.latexcfg` 
 Eine Änderung der anderen Compilereinstellungen ist damit nicht mehr nötig.
 
 ##### Installation
+
+Die Installation der Plugins kann auch über die Benutzeroberfläche erfolgen.
+
 ###### Linux
 ```bash
-sudo add-apt-repository -y ppa:webupd8team/atom
-sudo apt update
-sudo apt install -y atom
-apm install language-nginx
+sudo snap install atom --classic
+apm install atom-latex
 apm install language-latex
 ```
 
 ###### Windows
 Installationsdatei unter https://atom.io/ herunterladen und installieren.
 ```bash
-apm install language-nginx
+apm install atom-latex
 apm install language-latex
 ```
 
 ### TeXstudio
 
 ##### Installation
+
 ###### Linux
 ```bash
 sudo apt install -y TeXstudio
